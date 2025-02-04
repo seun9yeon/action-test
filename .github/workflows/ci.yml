@@ -9,6 +9,6 @@ jobs:
   test:
     runs-on: ubuntu-24.04
 
-  step:
-    name: test
-    run: echo 'test'
+    steps:
+      - name: test
+        run: echo 'test'
