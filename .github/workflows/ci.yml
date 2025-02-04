@@ -1,0 +1,14 @@
+name: test
+
+on:
+  push:
+    branches:
+      - deploy/*
+
+job:
+  test:
+    runs-on: ubuntu-24.04
+
+  step:
+    - name: test
+      run: echo 'test'
