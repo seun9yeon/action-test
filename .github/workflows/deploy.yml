@@ -60,7 +60,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY}}
           port: ${{ secrets.SSH_PORT }}
-          script: cd ~/work-directory
+          script:
+            cd ~/work-directory
             docker compose pull
             docker compose down
             docker compose up -d
