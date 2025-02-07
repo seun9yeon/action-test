@@ -27,10 +27,10 @@ jobs:
         uses: actions/cache@v4.2.0
         with:
           path: |
-           /tmp/.buildx-cache/backend
-           /tmp/.buildx-cache/fronted
+            /tmp/.buildx-cache/backend
+            /tmp/.buildx-cache/frontend
           key: docker-image-layer-cache-${{ github.sha }}
-          restore-keys: docker-image-layer-cache-
+          restore-keys: docker-image-layer-cache
 
       - name: run ssh-agent
         uses: webfactory/ssh-agent@v0.9.0
