@@ -24,7 +24,7 @@ jobs:
       # 캐시 저장 설정을 위한 action(라이브러리)
       - name: Cache Docker Image Layer
         # action/cache : 깃허브 캐시 저장소 활용을 위한 라이브러리
-        uses: action/cache@v4.2.0
+        uses: actions/cache@v4.2.0
         with:
           path: /tmp/.buildx-cache
           key: docker-image-layer-cache
