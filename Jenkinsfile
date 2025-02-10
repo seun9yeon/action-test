@@ -26,12 +26,12 @@ pipeline {
         }
 
         stage("Docker Image Build & Container Run") {
-          steps (
-            script {
-              sh 'docker compose build'
-              sh 'docker compose up -d'
+            steps {
+              script {
+                sh 'docker compose build'
+                sh 'docker compose up -d'
+              }
             }
-          )
         }
     }
     
