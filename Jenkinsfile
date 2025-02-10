@@ -26,37 +26,30 @@ pipeline {
     }
     // ... 생략
   }
-  
-  discordSend(
-    webhookURL: 'https://discord.com/api/webhooks/1338393096614055936/cxRmrGchfFs9FojoD5PP-3FEFMtJsLZd18qEmAlVdgEnYJj08pAKCkRMF8K13SuLSd7b', 
-    message: '빌드가 성공적으로 완료되었습니다!',
-    color: 'good'
-)
-
 
   post {
         success {
             withCredentials([string(credentialsId: 'discord-webhook', variable: 'discord_webhook')]) {
-                        discordSend description: """
-                        제목 : ${currentBuild.displayName}
-                        결과 : ${currentBuild.currentResult}
-                        실행 시간 : ${currentBuild.duration / 1000}s
-                        """,
-                        link: env.BUILD_URL, result: currentBuild.currentResult, 
-                        title: "${env.JOB_NAME} : ${currentBuild.displayName} 성공", 
-                        webhookURL: "$discord_webhook"
+                  discordSend description: """
+                  제목 : ${currentBuild.displayName}
+                  결과 : ${currentBuild.currentResult}
+                  실행 시간 : ${currentBuild.duration / 1000}s
+                  """,
+                  link: env.BUILD_URL, result: currentBuild.currentResult, 
+                  title: "${env.JOB_NAME} : ${currentBuild.displayName} 성공", 
+                  webhookURL: "$discord_webhook"
             }
         }
         failure {
             withCredentials([string(credentialsId: 'discord-webhook', variable: 'discord_webhook')]) {
-                        discordSend description: """
-                        제목 : ${currentBuild.displayName}
-                        결과 : ${currentBuild.currentResult}
-                        실행 시간 : ${currentBuild.duration / 1000}s
-                        """,
-                        link: env.BUILD_URL, result: currentBuild.currentResult, 
-                        title: "${env.JOB_NAME} : ${currentBuild.displayName} 실패", 
-                        webhookURL: "$discord_webhook"
+                  discordSend description: """
+                  제목 : ${currentBuild.displayName}
+                  결과 : ${currentBuild.currentResult}
+                  실행 시간 : ${currentBuild.duration / 1000}s
+                  """,
+                  link: env.BUILD_URL, result: currentBuild.currentResult, 
+                  title: "${env.JOB_NAME} : ${currentBuild.displayName} 실패", 
+                  webhookURL: "$discord_webhook"
             }
         }
     }
