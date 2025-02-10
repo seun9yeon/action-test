@@ -63,22 +63,6 @@ pipeline {
         
     }
 
-    
-    
-    post {
-		    always {
-				    echo '항상 실행된다.'
-		    }
-		    
-		    success {
-				    echo '성공 시 실행된다.'
-		    }
-		    
-		    failure {
-				    echo '실패 시 실행된다.'
-		    }
-    }
-
     post {
         success {
             withCredentials([string(credentialsId: 'discord-webhook', variable: 'discord_webhook')]) {
