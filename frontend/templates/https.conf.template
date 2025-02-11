@@ -5,9 +5,9 @@
 
         # SSL 인증서 설정
         # 인증서와 공개키 파일
-        ssl_certificate /etc/letsencrypt/live/${DOMAIN};/fullchain.pem;
+        ssl_certificate /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
         # 개인키 파일
-        ssl_certificate_key /etc/letsencrypt/live/${DOMAIN};/privkey.pem;
+        ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
 
 
         # SSL 설정
