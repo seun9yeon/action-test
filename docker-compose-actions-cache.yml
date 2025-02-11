@@ -61,8 +61,12 @@ services:
     image: seun9yeon/frontend:latest
     ports:
       - "80:80"
+      - "443:443"
     networks:
       - backend-connect
+    volumes:
+      - /etc/letsencrypt/live/13.124.175.27.sslip.io/fullchain.pem:sudo chmod 644 /etc/letsencrypt/live/13.124.175.27.sslip.io/fullchain.pem
+      - /etc/letsencrypt/live/13.124.175.27.sslip.io/privkey.pem:sudo chmod 644 /etc/letsencrypt/live/13.124.175.27.sslip.io/privkey.pem
     depends_on:
       - backend
       - db
