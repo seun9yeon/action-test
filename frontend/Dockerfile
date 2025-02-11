@@ -13,7 +13,6 @@ FROM nginx:mainline-alpine-slim
 COPY --from=build /app/dist /usr/share/nginx/html
 # 모듈화된 서버 설정 파일을 컨테이너로 복사
 COPY ./templates /etc/nginx/templates
-COPY ./conf.d /etc/nginx/conf.d 
 COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
